@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kat</title>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <meta name="description" content="mi niña hermosa,mi princesa,ojitos bonitos,declaracion de amor,la mas sexy," />
+    <meta name="author" content="Ing Alex Nima" />
+    <meta name="copyright" content="Propietario del copyright" />
+
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 0.3rem;
+            --stroke: #666;
+            --fill: #ffc73a;
+        }
+
+        .rating input {
+            appearance: unset;
+        }
+
+        .rating label {
+            cursor: pointer;
+        }
+
+        .rating svg {
+            width: 2rem;
+            height: 2rem;
+            overflow: visible;
+            fill: transparent;
+            stroke: var(--stroke);
+            stroke-linejoin: bevel;
+            stroke-dasharray: 12;
+            animation: idle 4s linear infinite;
+            transition: stroke 0.2s, fill 0.5s;
+        }
+
+        @keyframes idle {
+            from {
+                stroke-dashoffset: 24;
+            }
+        }
+
+        .rating label:hover svg {
+            stroke: var(--fill);
+        }
+
+        .rating input:checked~label svg {
+            transition: 0s;
+            animation: idle 4s linear infinite, yippee 0.75s backwards;
+            fill: var(--fill);
+            stroke: var(--fill);
+            stroke-opacity: 0;
+            stroke-dasharray: 0;
+            stroke-linejoin: miter;
+            stroke-width: 8px;
+        }
+
+        @keyframes yippee {
+            0% {
+                transform: scale(1);
+                fill: var(--fill);
+                fill-opacity: 0;
+                stroke-opacity: 1;
+                stroke: var(--stroke);
+                stroke-dasharray: 10;
+                stroke-width: 1px;
+                stroke-linejoin: bevel;
+            }
+
+            30% {
+                transform: scale(0);
+                fill: var(--fill);
+                fill-opacity: 0;
+                stroke-opacity: 1;
+                stroke: var(--stroke);
+                stroke-dasharray: 10;
+                stroke-width: 1px;
+                stroke-linejoin: bevel;
+            }
+
+            30.1% {
+                stroke: var(--fill);
+                stroke-dasharray: 0;
+                stroke-linejoin: miter;
+                stroke-width: 8px;
+            }
+
+            60% {
+                transform: scale(1.2);
+                fill: var(--fill);
+            }
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        footer div {
+            margin: 0 auto;
+            /* Establece un ancho máximo si lo desea */
+            max-width: 600px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cssload-main {
+            position: absolute;
+            content: '';
+            left: 50%;
+            transform: translate(-100%, -240%);
+            -o-transform: translate(-100%, -240%);
+            -ms-transform: translate(-100%, -240%);
+            -webkit-transform: translate(-100%, -240%);
+            -moz-transform: translate(-100%, -240%);
+        }
+
+        .cssload-main * {
+            font-size: 62px;
+        }
+
+        .cssload-heart {
+            animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -o-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -ms-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -webkit-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -moz-animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            top: 50%;
+            content: '';
+            left: 50%;
+            position: absolute;
+        }
+
+        .cssload-heartL {
+            width: 1em;
+            height: 1em;
+            border: 1px solid rgb(252, 0, 101);
+            background-color: rgb(252, 0, 101);
+            content: '';
+            position: absolute;
+            display: block;
+            border-radius: 100%;
+            animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -o-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -ms-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -webkit-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -moz-animation: cssload-heartL 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            transform: translate(-28px, -27px);
+            -o-transform: translate(-28px, -27px);
+            -ms-transform: translate(-28px, -27px);
+            -webkit-transform: translate(-28px, -27px);
+            -moz-transform: translate(-28px, -27px);
+        }
+
+        .cssload-heartR {
+            width: 1em;
+            height: 1em;
+            border: 1px solid rgb(252, 0, 101);
+            background-color: rgb(252, 0, 101);
+            content: '';
+            position: absolute;
+            display: block;
+            border-radius: 100%;
+            transform: translate(28px, -27px);
+            -o-transform: translate(28px, -27px);
+            -ms-transform: translate(28px, -27px);
+            -webkit-transform: translate(28px, -27px);
+            -moz-transform: translate(28px, -27px);
+            animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -o-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -ms-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -webkit-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -moz-animation: cssload-heartR 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+        }
+
+        .cssload-square {
+            width: 1em;
+            height: 1em;
+            border: 1px solid rgb(252, 0, 101);
+            background-color: rgb(252, 0, 101);
+            position: relative;
+            display: block;
+            content: '';
+            transform: scale(1) rotate(-45deg);
+            -o-transform: scale(1) rotate(-45deg);
+            -ms-transform: scale(1) rotate(-45deg);
+            -webkit-transform: scale(1) rotate(-45deg);
+            -moz-transform: scale(1) rotate(-45deg);
+            animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -o-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -ms-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -webkit-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -moz-animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+        }
+
+        .cssload-shadow {
+            top: 97px;
+            left: 50%;
+            content: '';
+            position: relative;
+            display: block;
+            bottom: -.5em;
+            width: 1em;
+            height: .24em;
+            background-color: rgb(215, 215, 215);
+            border: 1px solid rgb(215, 215, 215);
+            border-radius: 50%;
+            animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -o-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -ms-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -webkit-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+            -moz-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
+        }
+
+        @keyframes cssload-square {
+            50% {
+                border-radius: 100%;
+                transform: scale(0.5) rotate(-45deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-45deg);
+            }
+        }
+
+        @-o-keyframes cssload-square {
+            50% {
+                border-radius: 100%;
+                -o-transform: scale(0.5) rotate(-45deg);
+            }
+
+            100% {
+                -o-transform: scale(1) rotate(-45deg);
+            }
+        }
+
+        @-ms-keyframes cssload-square {
+            50% {
+                border-radius: 100%;
+                -ms-transform: scale(0.5) rotate(-45deg);
+            }
+
+            100% {
+                -ms-transform: scale(1) rotate(-45deg);
+            }
+        }
+
+        @-webkit-keyframes cssload-square {
+            50% {
+                border-radius: 100%;
+                -webkit-transform: scale(0.5) rotate(-45deg);
+            }
+
+            100% {
+                -webkit-transform: scale(1) rotate(-45deg);
+            }
+        }
+
+        @-moz-keyframes cssload-square {
+            50% {
+                border-radius: 100%;
+                -moz-transform: scale(0.5) rotate(-45deg);
+            }
+
+            100% {
+                -moz-transform: scale(1) rotate(-45deg);
+            }
+        }
+
+        @keyframes cssload-heart {
+            50% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(720deg);
+            }
+        }
+
+        @-o-keyframes cssload-heart {
+            50% {
+                -o-transform: rotate(360deg);
+            }
+
+            100% {
+                -o-transform: rotate(720deg);
+            }
+        }
+
+        @-ms-keyframes cssload-heart {
+            50% {
+                -ms-transform: rotate(360deg);
+            }
+
+            100% {
+                -ms-transform: rotate(720deg);
+            }
+        }
+
+        @-webkit-keyframes cssload-heart {
+            50% {
+                -webkit-transform: rotate(360deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(720deg);
+            }
+        }
+
+        @-moz-keyframes cssload-heart {
+            50% {
+                -moz-transform: rotate(360deg);
+            }
+
+            100% {
+                -moz-transform: rotate(720deg);
+            }
+        }
+
+        @keyframes cssload-heartL {
+            60% {
+                transform: scale(0.4);
+            }
+        }
+
+        @-o-keyframes cssload-heartL {
+            60% {
+                -o-transform: scale(0.4);
+            }
+        }
+
+        @-ms-keyframes cssload-heartL {
+            60% {
+                -ms-transform: scale(0.4);
+            }
+        }
+
+        @-webkit-keyframes cssload-heartL {
+            60% {
+                -webkit-transform: scale(0.4);
+            }
+        }
+
+        @-moz-keyframes cssload-heartL {
+            60% {
+                -moz-transform: scale(0.4);
+            }
+        }
+
+        @keyframes cssload-heartR {
+            40% {
+                transform: scale(0.4);
+            }
+        }
+
+        @-o-keyframes cssload-heartR {
+            40% {
+                -o-transform: scale(0.4);
+            }
+        }
+
+        @-ms-keyframes cssload-heartR {
+            40% {
+                -ms-transform: scale(0.4);
+            }
+        }
+
+        @-webkit-keyframes cssload-heartR {
+            40% {
+                -webkit-transform: scale(0.4);
+            }
+        }
+
+        @-moz-keyframes cssload-heartR {
+            40% {
+                -moz-transform: scale(0.4);
+            }
+        }
+
+        @keyframes cssload-shadow {
+            50% {
+                transform: scale(0.5);
+                border-color: rgb(228, 228, 228);
+            }
+        }
+
+        @-o-keyframes cssload-shadow {
+            50% {
+                -o-transform: scale(0.5);
+                border-color: rgb(228, 228, 228);
+            }
+        }
+
+        @-ms-keyframes cssload-shadow {
+            50% {
+                -ms-transform: scale(0.5);
+                border-color: rgb(228, 228, 228);
+            }
+        }
+
+        @-webkit-keyframes cssload-shadow {
+            50% {
+                -webkit-transform: scale(0.5);
+                border-color: rgb(228, 228, 228);
+            }
+        }
+
+        @-moz-keyframes cssload-shadow {
+            50% {
+                -moz-transform: scale(0.5);
+                border-color: rgb(228, 228, 228);
+            }
+        }
+
+        body {
+            background-image: url(../img/fondo1.jpg);
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+
+        }
+
+        .container {
+            text-align: center;
+            background-color: pink;
+            padding: 10px;
+            border-radius: 100px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: black;
+
+        }
+
+        p {
+            color: deeppink;
+        }
+
+        img {
+            width: 250px;
+            height: 250px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: red;
+            font-family: 'Pacifico', cursive;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+            background-color: #ff4f4f;
+        }
+    </style>
+
+</head>
+
+<body class="body">
+
+    <h1 class="body__title">♥ Quieres ser mi Novia Cielo? ♥</h1>
+    <img src="https://i.pinimg.com/1200x/91/1f/b9/911fb9b08e80ec609713843f41b57635.jpg" class="body__img" />
+    <br>
+    <h2 class="pregunta">♥ Escoje mi Niña Hermosa ♥</h2> <br>
+    <button id="yes" class="botonsi">🌚Si Soy♥🌚</button>
+    <button id="no">😭Nel PerrO😭</button>
+
+
+
+
+
+    <script>
+        const vuttonSi = document.getElementById('yes');
+        const vuttonNo = document.getElementById('no');
+
+        const somosNobios = () => {
+            alert('💞Sabia que Dirias si💞');
+            alert('💞Ahora eres Mi NOVIA💞');
+            alert('😱No hay devoluciones😱');
+            alert('😱Te Chingas Ahora eres Mía😱');
+            alert('😱Funciono el Amarre de la Mamita jejeje😱');
+            alert('😱Gracias por llegar  ami vida💞');
+            alert('😱la boda sera Pronto ...💞');
+            alert('😱en yamango mi Reyna💞');
+            alert('😱la jose no esta invitado💞');
+            alert('😱ire a ver a lima amor x cierto💞');
+            alert('😱tranquila mi tragona habra mucha comida 💞');
+            location.href = 'index1.html';
+        };
+
+        const ebitarKCRompaMyBobo = () => {
+            vuttonNo.style.position = 'absolute';
+            vuttonNo.style.top = (Math.random() * window.innerHeight + 'px');
+            vuttonNo.style.left = (Math.random() * window.innerWidth + 'px');
+        };
+
+        vuttonSi.addEventListener('click', somosNobios);
+        vuttonNo.addEventListener('mouseover', ebitarKCRompaMyBobo);
+    </script>
+
+    <!-- <footer>
+        <div class="rating">
+            <input type="radio" id="star-1" name="star-radio" value="star-1">
+            <label for="star-1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path pathLength="360"
+                        d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z">
+                    </path>
+                </svg>
+            </label>
+            <input type="radio" id="star-2" name="star-radio" value="star-1">
+            <label for="star-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path pathLength="360"
+                        d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z">
+                    </path>
+                </svg>
+            </label>
+            <input type="radio" id="star-3" name="star-radio" value="star-1">
+            <label for="star-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path pathLength="360"
+                        d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z">
+                    </path>
+                </svg>
+            </label>
+            <input type="radio" id="star-4" name="star-radio" value="star-1">
+            <label for="star-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path pathLength="360"
+                        d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z">
+                    </path>
+                </svg>
+            </label>
+            <input type="radio" id="star-5" name="star-radio" value="star-1">
+            <label for="star-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path pathLength="360"
+                        d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z">
+                    </path>
+                </svg>
+            </label>
+        </div>
+    </footer><br><br><br><br><br><br><br><br><br>
+    <div class="cssload-main">
+        <div class="cssload-heart">
+            <span class="cssload-heartL"></span>
+            <span class="cssload-heartR"></span>
+            <span class="cssload-square"></span>
+        </div>
+        <div class="cssload-shadow"></div>
+    </div> -->
+</body>
+
+</html>
